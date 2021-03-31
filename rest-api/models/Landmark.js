@@ -1,15 +1,24 @@
 const mongoose = require('mongoose');
 
 const landmarkSchema = new mongoose.Schema({
-    _id: {
-        type: mongoose.Schema.Types.ObjectId,
     
-        auto: true,
-      },
-    name: String,
-    description: String,
-    imageURL: String,
-    category: String,
+  title: {
+    type: String,
+    required: true,
+    unique:true,
+
+},
+description: {
+    type:String,
+    required: true,
+    maxlength: 1000
+},
+imageUrl: {
+    type: String,
+    required:true,
+    validate: /^https?/,
+},
+
     likes: Number,
 });
 
