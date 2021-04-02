@@ -1,14 +1,27 @@
+import { Link } from 'react-router-dom';
+import * as userService from '../../services/userService'
+
+
+
 const Register = () =>{
-    return(
 
+const onCreateUserHandler = (e) => {
+  e.preventDefault();
 
+  const {email,  password, repeatPassword} = e.target
+  userService.create(email.value, password.value, repeatPassword.value)
+  console.log(email.value);
+};
+
+return(
         <div className="login-box">
             <h2>Register</h2>
-            <form>
-              <div className="user-box">
-                <input type="text" name="username" required=""/>
-                <label>Username</label>
+            <form onSubmit={onCreateUserHandler}>
+            <div className="user-box">
+                <input type="text" name="email" required=""/>
+                <label>Email</label>
               </div>
+           
               <div className="user-box">
                 <input type="password" name="password" required=""/>
                 <label>Password</label>
@@ -17,13 +30,9 @@ const Register = () =>{
                 <input type="password" name="repeatPassword" required=""/>
                 <label> Repeat Password</label>
               </div>
-              <a href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Submit
-              </a>
+           
+              <input className="input-show" type="submit" value="Submit"/>
+        
             </form>
           </div>
        

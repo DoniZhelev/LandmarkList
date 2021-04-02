@@ -2,17 +2,36 @@ const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-router.post('/register', (req, res) => {
+router.get('/:userId', (req, res) =>{
+console.log(req.params);
+    User.find({_id: req.params.userId})
+    .then(userId =>{
+        res.json(userId)
+    })  
+})
+
+router.get('/', (req, res) => {
+    
+    User.find({})
+        .then(user => {
+            res.json(user);
+           console.log();
+        });
+});
+
+router.post('/register', async (req, res) => {
     // TODO: Check if user exists
 
-    let user = new User(req.body);
+    const user = new User({
 
-    user.save()
-        .then(createdUser => {
-            console.log(createdUser);
+        email: req.body.email,
+        password: req.body.password,
+        repeatPassword: req.body.repeatPassword,
+    })
+    await user.save()
+    res.send(user)
 
-            res.status(201).json({_id: createdUser._id});
-        });
+   
 
 });
 

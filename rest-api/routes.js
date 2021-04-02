@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
 const authController = require('./controllers/authController');
-const petController = require('./controllers/petController');
+const landmarkController = require('./controllers/landmarkController');
 
 router.use('/auth', authController);
-router.use('/', petController);
+router.use('/', landmarkController);
 
 module.exports = router;
