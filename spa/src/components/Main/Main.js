@@ -1,36 +1,36 @@
-
+import { Link} from 'react-router-dom';
 
 const Main = () => {
     return(
-        <section class="wrapper style3 container special">
+        <section className="wrapper style3 container special">
 
-							<header class="major">
-								<h2>Next look at this <strong>cool stuff</strong></h2>
+							<header className="major">
+								<h2>Top Rated  <strong>Landmarks</strong></h2>
 							</header>
 
-							<div class="row">
-								<div class="col-6 col-12-narrower">
+							<div className="row">
+								<div className="col-6 col-12-narrower">
 
 									<section>
-										<a href="" class="image featured"><img src="https://ichef.bbci.co.uk/news/1024/cpsprodpb/151AB/production/_111434468_gettyimages-1143489763.jpg" alt="" /></a>
+										<Link to="" className="image featured"><img src="https://www.nasamnatam.com/statiifiles/Klearchos%20Kapoutsis_Belogradchik.jpg" alt="" /></Link>
 										<header>
-											<h3>A Really Fast Train</h3>
+											<h3>Belogradchik Rocks</h3>
 										</header>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+										<p>The formation of the Belogradchik Rocks started during the Permian period, about 230 million years ago, when the tectonic cycle was folding to create the Balkan Mountains and elevating the region of Belogradchik. </p>
 									</section>
 
 								</div>
 								
 							
 							</div>
-							<div class="row">
+							<div className="row">
 							
 							
 							</div>
 
-							<footer class="major">
-								<ul class="buttons">
-									<li><a href="#" class="button">See More</a></li>
+							<footer className="major">
+								<ul className="buttons">
+									<li><Link to="#" className="button">See More</Link></li>
 								</ul>
 							</footer>
 
