@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 router.get('/:userId', (req, res) =>{
-console.log(req.params);
+
     User.find({_id: req.params.userId})
     .then(userId =>{
         res.json(userId)
@@ -26,7 +26,7 @@ router.post('/register', async (req, res) => {
 
         email: req.body.email,
         password: req.body.password,
-        repeatPassword: req.body.repeatPassword,
+       
     })
     await user.save()
     res.send(user)
@@ -35,20 +35,26 @@ router.post('/register', async (req, res) => {
 
 });
 
-router.post('/login', (req, res, next) => {
-    const {login: username, password} = req.body; 
+// router.post('/login', (req, res) => {
+//     res.send({
+//       token: 'test123'
+//     });
+//   });
 
-    User.where({username, password})
-        .findOne()
+router.post('/login', (req, res, next) => {
+    const { email, password} = req.body; 
+    
+    User.findOne({'email': email}, {'password': password})
             .then(user => {
                 let token = jwt.sign({
                     _id: user._id,
-                    username: user.username,
-                }, 'SOMESUPERSECRET', { expiresIn: '1h'});
+                    password: user.password,
+                }, 'SALTKAMYK', { expiresIn: '1h'});
+                console.log(user);
 
                 res.status(200).json({
                     _id: user._id,
-                    username: user.username,
+                    password: user.password,
                     token
                 })
             })
