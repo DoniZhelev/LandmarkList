@@ -1,16 +1,44 @@
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const Login = () => {
+
+async function loginUser(credentials) {
+ return fetch('http://localhost:5000/api/auth/login', {
+   method: 'POST',
+   headers: {
+     'Content-Type': 'application/json'
+   },
+   body: JSON.stringify(credentials)
+ })
+   .then(data => data.json())
+}
+
+export default function Login({ setToken }) {
+
+  
+  
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value
+    console.log(email);
+    console.log(password);
+    const token = await loginUser({
+      email,
+      password
+    });
+    setToken(token);
+  }
     return(
         <div className="login-box">
         <h2>Login</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="user-box">
-            <input type="text" name="email" required=""/>
+            <input type="text" name="email" required="" />
             <label>Email</label>
           </div>
           <div className="user-box">
-            <input type="password" name="password" required=""/>
+            <input type="password" name="password" required="" />
             <label>Password</label>
           </div>
          <input className="input-show" type="submit" value="submit"/>
@@ -18,5 +46,6 @@ const Login = () => {
       </div>
     );
 }
-
-export default Login;
+Login.propTypes = {
+  setToken: PropTypes.func.isRequired
+};

@@ -9,8 +9,13 @@ const onCreateUserHandler = (e) => {
   e.preventDefault();
 
   const {email,  password, repeatPassword} = e.target
-  userService.create(email.value, password.value, repeatPassword.value)
-  console.log(email.value);
+  if(password.value === repeatPassword.value) {
+
+    userService.create(email.value, password.value, repeatPassword.value)
+  } else {
+  console.error('Invalid Password');
+  }
+ 
 };
 
 return(

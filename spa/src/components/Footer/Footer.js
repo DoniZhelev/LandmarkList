@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 
 const Footer = () => {
     return(
@@ -5,15 +7,15 @@ const Footer = () => {
 
 		<footer id="footer">
 
-        <ul class="icons">
-            <li><a href="#" class="icon brands circle fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon brands circle fa-facebook-f"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon brands circle fa-google-plus-g"><span class="label">Google+</span></a></li>
-            <li><a href="#" class="icon brands circle fa-github"><span class="label">Github</span></a></li>
+        <ul className="icons">
+            <li><a href="https://twitter.com/"  target="_blank" className="icon brands circle fa-twitter"><span className="label">Twitter</span></a></li>
+            <li><a href="https://www.facebook.com/" target="_blank" className="icon brands circle fa-facebook-f"><span className="label">Facebook</span></a></li>
+            <li><a href="https://www.instagram.com/" target="_blank" className="icon brands circle fa-instagram"><span className="label">Google+</span></a></li>
+            <li><a href="https://github.com/DoniZhelev" target="_blank" className="icon brands circle fa-github"><span className="label">Github</span></a></li>
             
         </ul>
 
-        <ul class="copyright">
+        <ul className="copyright">
             <li>&copy; Landmarklist 2021</li>
         </ul>
 
