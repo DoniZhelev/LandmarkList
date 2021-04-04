@@ -36,7 +36,7 @@ return(
                 <label> Repeat Password</label>
               </div>
            
-              <input className="input-show" type="submit" value="Submit"/>
+              <input className="input-show" type="submit" value="submit"/>
         
             </form>
           </div>

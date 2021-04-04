@@ -1,6 +1,9 @@
 const router = require('express').Router();
-const jwt = require('jsonwebtoken');
+const authService = require('../services/authService')
 const User = require('../models/User');
+const { COOKIE_NAME} = require('../config/config')
+
+
 
 router.get('/:userId', (req, res) =>{
 
@@ -35,32 +38,27 @@ router.post('/register', async (req, res) => {
 
 });
 
+router.post('/login', (req, res) => {
+    res.send({
+      token: 'test123'
+    });
+  }); 
+
 // router.post('/login', (req, res) => {
-//     res.send({
-//       token: 'test123'
-//     });
-//   });
+//     const { email, password} = req.body;
+   
+//    const token = authService.login(email, password)  
+//     .then(token => {
 
-router.post('/login', (req, res, next) => {
-    const { email, password} = req.body; 
+//         res.status(200);
+
+
+//     })
+//     .catch(err => 
+//         res.render('login',  {message: 'email or password are incorect!'}))
     
-    User.findOne({'email': email}, {'password': password})
-            .then(user => {
-                let token = jwt.sign({
-                    _id: user._id,
-                    password: user.password,
-                }, 'SALTKAMYK', { expiresIn: '1h'});
-                console.log(user);
+//         res.send(token)
+// });
 
-                res.status(200).json({
-                    _id: user._id,
-                    password: user.password,
-                    token
-                })
-            })
-            .catch(err => {
-                next({status: 404, message: 'No such user or password!', type: 'ERROR'})
-            })
-});
 
 module.exports = router;

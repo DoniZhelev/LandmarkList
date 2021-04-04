@@ -11,22 +11,22 @@ import './App.css';
 
 
 
-
 function App() {
- 
   const { token, setToken } = useToken();
 
-  // if(!token) {
-  //   return <Login setToken={setToken} />
-  // }
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
   return (
     <div className="page-wrapper">
-  <Header />
+  <Header email={Login.email}  />
 <Switch>
 
 <Route path="/" exact component={Main} />
 <Route path="/register"  component={Register} />
 <Route path="/login"   component={Login} />
+
+
 </Switch>
  
 

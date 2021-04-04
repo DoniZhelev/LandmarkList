@@ -1,9 +1,10 @@
 import { Link } from  'react-router-dom';
 
 const Header = () => {
+    
     return(
 <header id="header" className="alt">
-<h1 id="logo"><Link to="/">WELCOME,  </Link ></h1>
+<h1 id="logo"><Link to="/">WELCOME,   </Link ></h1>
 <nav id="nav">
     <ul>
         <li className="current"><Link to="index.html">About Us  </Link></li>
