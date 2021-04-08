@@ -1,17 +1,22 @@
-import { Link } from 'react-router-dom';
-import * as userService from '../../services/userService'
+import { auth } from '../config/firebase';
 
 
 
-const Register = () =>{
+const Register = ({
+  history
+}) =>{
 
 const onCreateUserHandler = (e) => {
   e.preventDefault();
 
   const {email,  password, repeatPassword} = e.target
   if(password.value === repeatPassword.value) {
-
-    userService.create(email.value, password.value, repeatPassword.value)
+    
+    auth.createUserWithEmailAndPassword(email.value, password.value)
+    .then(userCredential => {
+      console.log('Register');
+      history.push('/')
+    })
   } else {
   console.error('Invalid Password');
   }

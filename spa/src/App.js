@@ -1,31 +1,38 @@
-import { Route, Switch} from 'react-router-dom';
-import React from 'react';
+import { Redirect, Route, Switch} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
-import useToken from './services/useToken'
 
+import './components/config/firebase'
 import './App.css';
+import { auth } from './components/config/firebase';
 
 
 
 function App() {
-  const { token, setToken } = useToken();
+const [user, setUser] = useState(null);
+console.log(user?.email);
+useEffect(() =>{
+  auth.onAuthStateChanged(setUser);
+}, [])
 
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
+
   return (
     <div className="page-wrapper">
-  <Header email={Login.email}  />
+  <Header  email={user?.email} isAuth={Boolean(user)} />
+ 
 <Switch>
 
 <Route path="/" exact component={Main} />
 <Route path="/register"  component={Register} />
 <Route path="/login"   component={Login} />
-
+<Route path="/logout" render={props =>{
+  auth.signOut();
+  return <Redirect to="/" />
+}} />
 
 </Switch>
  
