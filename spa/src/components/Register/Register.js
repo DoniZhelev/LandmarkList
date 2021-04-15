@@ -1,6 +1,6 @@
 import { auth } from '../config/firebase';
 
-
+import './Register.css'
 
 const Register = ({
   history

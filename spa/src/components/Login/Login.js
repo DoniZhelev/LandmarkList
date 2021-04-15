@@ -1,5 +1,7 @@
 import {auth} from '../config/firebase'
 
+import './Login.css'
+
 
 const Login = ({
   history
