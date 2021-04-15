@@ -4,14 +4,14 @@ const Main = () => {
     return(
         <section className="wrapper style3 container special">
 
-							<header className="major">
+			<header className="major">
 								<h2>Top Rated  <strong>Landmarks</strong></h2>
-							</header>
+			</header>
 
-							<div className="row">
-								<div className="col-6 col-12-narrower">
+				<div className="row">
+				<div className="col-6 col-12-narrower">
 
-									<section>
+		<section>
 										<Link to="" className="image featured"><img src="https://www.nasamnatam.com/statiifiles/Klearchos%20Kapoutsis_Belogradchik.jpg" alt="" /></Link>
 										<header>
 											<h3>Belogradchik Rocks</h3>

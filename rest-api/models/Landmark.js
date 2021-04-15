@@ -18,8 +18,7 @@ imageUrl: {
     required:true,
     validate: /^https?/,
 },
-
-    likes: Number,
+ likes : String,
 });
 
 module.exports = mongoose.model('Landmark', landmarkSchema);

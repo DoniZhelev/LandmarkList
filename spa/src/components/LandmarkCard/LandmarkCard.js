@@ -3,8 +3,7 @@ import { Link} from 'react-router-dom';
 const LandmarkCard = () => {
 
 
-    return();
-}
+    return(
 
 <div className="row">
 <div className="col-6 col-12-narrower">
@@ -19,3 +18,7 @@ const LandmarkCard = () => {
 
 </div>
 </div>
+    );
+}
+
+export default LandmarkCard;

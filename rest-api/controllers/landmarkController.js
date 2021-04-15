@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Landmark = require('../models/Landmark');
-const { isAuth } = require('../middlewares/auth');
+
 
 router.get('/', (req, res) => {
     
