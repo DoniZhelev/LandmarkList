@@ -16,7 +16,6 @@ import CreateNewLandmark from './components/CreateNewLandmark/CreateNewLandmark'
 
 function App() {
 const [user, setUser] = useState(null);
-console.log(user?.email);
 useEffect(() =>{
   auth.onAuthStateChanged(setUser);
 }, [])

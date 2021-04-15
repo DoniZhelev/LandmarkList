@@ -1,6 +1,12 @@
 import { Link} from 'react-router-dom';
 
-const LandmarkCard = () => {
+const LandmarkCard = ({
+    id,
+    title,
+    description,
+    imageURL,
+    likes,
+}) => {
 
 
     return(
@@ -9,13 +15,13 @@ const LandmarkCard = () => {
 <div className="col-6 col-12-narrower">
 
     <section>
-        <Link to="" className="image featured"><img src="https://www.nasamnatam.com/statiifiles/Klearchos%20Kapoutsis_Belogradchik.jpg" alt="" /></Link>
-        <header>
-            <h3>Belogradchik Rocks</h3>
+        <Link to="" className="image featured"><img src={imageURL} alt="" /></Link>
+        <li className="fa fa-heart" style={{"color": "red"}} > <span style={{"color": "aqua"}} >{likes}</span></li>
+        <header >
+            <h3> {title}</h3>
         </header>
-        <p>The formation of the Belogradchik Rocks started during the Permian period, about 230 million years ago, when the tectonic cycle was folding to create the Balkan Mountains and elevating the region of Belogradchik. </p>
+        <p> {description} </p>
     </section>
-
 </div>
 </div>
     );

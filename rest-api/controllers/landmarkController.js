@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
        
     })
     await landmark.save()
-    res.status(200).send(landmark)
+    res.status(201).send(landmark)
 
 });
 

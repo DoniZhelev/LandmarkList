@@ -67,6 +67,7 @@
                     text-decoration: none;
                     background-color:rgb(17, 173, 173);
                     font-size: bold;
+                    font-weight: 900;
                 }
 
                     #header nav ul li.submenu > a:before {
@@ -97,6 +98,7 @@
 
                 #header nav ul li.current > a {
                     font-weight: 900;
+                    background-color: rgb(13, 179, 179);
                 }
 
     #header.reveal {

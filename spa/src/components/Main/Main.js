@@ -1,6 +1,6 @@
 import { Link} from 'react-router-dom';
 import { useEffect, useState} from 'react';
-import LandmarkCard from '../NewLandmark/LandmarkCard';
+import LandmarkCard from '../LandmarkCard/LandmarkCard';
 
 const Main = ({
 	match,

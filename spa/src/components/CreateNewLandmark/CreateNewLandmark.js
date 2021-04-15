@@ -2,14 +2,19 @@ import  './CreateNewLandmark.css'
 import * as landmarkService from '../../services/landmarkService'
 
 
-const CreateNewLandmark = () => {
+const CreateNewLandmark = ({
+  history,
+}) => {
     
 const onCreateLandmarkSubmitHandler = (e) =>{
     e.preventDefault();
 
     const {title, description, imageURL} = e.target;
 
-    landmarkService.create(title.value, description.value, imageURL.value);
+    landmarkService.create(title.value, description.value, imageURL.value)
+    .then((redirect) => {
+      history.push('/')
+    })
 
 };
 
