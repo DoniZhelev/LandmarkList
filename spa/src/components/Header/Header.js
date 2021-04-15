@@ -14,22 +14,18 @@ const Header = ({
 
 <nav id="nav">
     <ul>
-        <li className="current"><Link to="index.html">About Us  </Link></li>
+        {isAuth
+        ? <li className="current"><Link to="">My List  </Link></li>
+        : ''
+        }
+
         <li className="submenu">
             {isAuth
-            
             ? <Link to="/create">Create new Landmark</Link>
             : ''
         }
             <ul>
-                
-                
-                <li className="submenu">
-                 
-                    <ul>
-                       
-                    </ul>
-                </li>
+                <li className="submenu"></li>
             </ul>
         </li>
         {isAuth
@@ -38,11 +34,8 @@ const Header = ({
         ? <li><Link to="/logout" className="button primary">Logout</Link></li>
 
         :  <li><Link to="/register" className="button primary">Register</Link></li>
-
-        
-
-
         }
+
        {isAuth
        ? ''
        :  <li><Link to="/login" className="button primary">Login</Link></li>
