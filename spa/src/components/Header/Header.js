@@ -1,4 +1,5 @@
 import { Link } from  'react-router-dom';
+import './Header.css'
 
 const Header = ({
     email,
@@ -15,21 +16,18 @@ const Header = ({
     <ul>
         <li className="current"><Link to="index.html">About Us  </Link></li>
         <li className="submenu">
-            <Link to="#">Category</Link>
+            {isAuth
+            
+            ? <Link to="/create">Create new Landmark</Link>
+            : ''
+        }
             <ul>
                 
-                <li><Link to="left-sidebar.html">Left Sidebar</Link></li>
-                <li><Link to="right-sidebar.html">Right Sidebar</Link></li>
-                <li><Link to="no-sidebar.html">No Sidebar</Link></li>
-                <li><Link to="contact.html">Contact</Link></li>
+                
                 <li className="submenu">
-                    <Link to="#">Submenu</Link>
+                 
                     <ul>
-                        <li><Link to="#">Dolore Sed</Link></li>
-                        <li><Link to="#">Consequat</Link></li>
-                        <li><Link to="#">Lorem Magna</Link></li>
-                        <li><Link to="#">Sed Magna</Link></li>
-                        <li><Link to="#">Ipsum Nisl</Link></li>
+                       
                     </ul>
                 </li>
             </ul>

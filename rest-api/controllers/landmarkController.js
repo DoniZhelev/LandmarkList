@@ -11,17 +11,20 @@ router.get('/', (req, res) => {
         });
 });
 
-router.post("/",   (req, res) => {
+router.post('/', async (req, res) => {
+    // TODO: Check if user exists
 
-    const landmark = new Landmark(req.body)
-    
-     landmark.save(function(err, doc) {
-    if (err) return console.error(err);
-    console.log("Document inserted succussfully!");
-  }); 
-   
-  });
+    const landmark = new Landmark({
 
+        title: req.body.title,
+        description: req.body.description,
+        imageURL: req.body.imageURL
+       
+    })
+    await landmark.save()
+    res.status(200).send(landmark)
+
+});
 
 router.get('/details/:landmarkId', (req, res) =>{
 

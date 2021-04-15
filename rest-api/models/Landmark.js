@@ -13,12 +13,16 @@ description: {
     required: true,
     maxlength: 1000
 },
-imageUrl: {
+imageURL: {
     type: String,
-    required:true,
+    
     validate: /^https?/,
 },
- likes : String,
+ likes : {
+     type:String,
+     default: 0
+ }
+ 
 });
 
 module.exports = mongoose.model('Landmark', landmarkSchema);

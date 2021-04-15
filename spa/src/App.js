@@ -9,6 +9,8 @@ import Login from './components/Login/Login';
 import './components/config/firebase'
 import './App.css';
 import { auth } from './components/config/firebase';
+import CreateNewLandmark from './components/CreateNewLandmark/CreateNewLandmark';
+
 
 
 
@@ -33,6 +35,7 @@ useEffect(() =>{
   auth.signOut();
   return <Redirect to="/" />
 }} />
+<Route  path="/create" component={CreateNewLandmark} />
 
 </Switch>
  
