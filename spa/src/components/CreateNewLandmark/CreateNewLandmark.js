@@ -23,12 +23,12 @@ const onCreateLandmarkSubmitHandler = (e) =>{
 <h2>New Landmark</h2>
 <form onSubmit={onCreateLandmarkSubmitHandler}>
 <div className="user-box">
-    <input type="text" name="title" required=""/>
+    <input type="text" name="title" placeholder="Landmark name" required=""/> 
     <label>TITLE</label>
   </div>
 
-  <div className="user-box">
-    <input type="text" name="description" required=""/>
+  <div className="user-box desc">
+    <input type="text"  name="description"  placeholder="Your description" required=""/>
     <label>DESCRIPTION</label>
   </div>
   <div className="user-box">

@@ -23,6 +23,7 @@ const Main = ({
 	</header>
 		{landmark.map(x=> <LandmarkCard	key={x._id} {...x} />
 		)} 
+		
 	<div className="row">				
 	</div>
 
